@@ -1,97 +1,144 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Typixel Design Company OS"
+description: "Run leads, clients, projects, files, payments, performance, and growth from one operating system."
 ---
 
-## Setting up
+## One place to run the entire company
 
-Get your documentation site up and running in minutes.
+A real design company operating system is not a static dashboard.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
+It is a full workflow engine:
+
+**Leads → Clients → Projects → Files → Payments → Performance → Growth**
+
+<Card title="Operating principle" icon="sitemap" horizontal>
+Build one connected system where every stage updates the next automatically. No WhatsApp chaos, no disconnected spreadsheets, no blind spots.
 </Card>
 
-## Make it yours
+## Core architecture (7 systems)
 
-Design a docs site that looks great and empowers your users.
+<CardGroup cols={2}>
+  <Card title="1) Identity & role system" icon="shield-check">
+    JWT auth, role middleware, protected routes, and account lifecycle controls.
+  </Card>
+  <Card title="2) Lead → client conversion" icon="funnel-dollar">
+    Pipeline from New to Won/Lost with automated conversion, reminders, and follow-ups.
+  </Card>
+  <Card title="3) Client management" icon="users">
+    Client profile, assets, contracts, history, notes, team assignment, and lifetime value.
+  </Card>
+  <Card title="4) Project execution" icon="kanban">
+    Status workflow, revision control, comments, files, approval, deadlines, and workload tracking.
+  </Card>
+  <Card title="5) Financial operating system" icon="wallet">
+    Invoices, payments, expenses, overdue alerts, profit analytics, and commissions.
+  </Card>
+  <Card title="6) Designer analytics" icon="chart-line">
+    Delivery rate, revisions, ratings, workload, ranking, and revenue per designer.
+  </Card>
+</CardGroup>
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+<Card title="7) Admin control center" icon="sliders">
+Approvals, role assignment, suspension, system logs, notifications, revenue summary, and growth metrics.
+</Card>
 
-## Create beautiful pages
+## Foundation layer (must build first)
 
-Everything you need to create world-class documentation.
+### Roles
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+- Super Admin
+- Admin
+- Project Manager
+- Designer
+- Client
+- Finance
 
-## Need inspiration?
+### Account status
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
+- Pending
+- Active
+- Suspended
+
+### Rules
+
+- Every role gets a different dashboard.
+- Every role sees different data.
+- Finance data is visible only to Finance/Admin.
+- Designer accounts cannot access revenue analytics by default.
+
+<Warning>
+If role permissions are weak, everything else in the OS is structurally broken.
+</Warning>
+
+## MVP implementation path
+
+<Steps>
+  <Step title="Step 1: Define MVP scope">
+    Build the minimum end-to-end flow first: **Auth → Leads → Clients → Projects → Invoices → Payments → Basic analytics**.
+  </Step>
+  <Step title="Step 2: Design database schema">
+    Lock core entities and relationships before writing business logic.
+  </Step>
+  <Step title="Step 3: Implement role-based auth">
+    Add JWT, middleware guards, route protection, and per-role dashboard rendering.
+  </Step>
+  <Step title="Step 4: Build pipeline automation">
+    Implement Lead → Client conversion and Project → Invoice → Payment lifecycle.
+  </Step>
+  <Step title="Step 5: Add performance + growth analytics">
+    Measure designer output, profitability, overdue cash, and client value trends.
+  </Step>
+</Steps>
+
+## Database blueprint
+
+| Table | Purpose |
+| --- | --- |
+| `users` | All system users with role and status |
+| `roles` | Role definitions |
+| `permissions` | Permission matrix per role |
+| `leads` | Sales pipeline entries and conversion stages |
+| `clients` | Converted customers with profile metadata |
+| `projects` | Project-level execution and status |
+| `tasks` | Granular delivery tracking |
+| `files` | Design assets and approvals |
+| `invoices` | Billing records and numbering |
+| `payments` | Transaction and settlement tracking |
+| `expenses` | Operating cost ledger |
+| `notifications` | Alerts and reminders |
+| `activity_logs` | Auditable user/system actions |
+
+<Tip>
+If this structure is skipped now, you will rewrite major parts of the product later.
+</Tip>
+
+## Recommended stack
+
+<CardGroup cols={2}>
+  <Card title="Frontend" icon="window">
+    Next.js + Tailwind with role-based route protection and modular dashboard layouts.
+  </Card>
+  <Card title="Backend" icon="server">
+    Node.js (Express or Next API routes) + PostgreSQL + Prisma ORM.
+  </Card>
+  <Card title="Authentication" icon="key">
+    JWT or Clerk with middleware-level access control.
+  </Card>
+  <Card title="Storage + payments" icon="cloud">
+    Cloudinary or AWS S3. Razorpay first (IN), Stripe later (international).
+  </Card>
+</CardGroup>
+
+## What the admin should answer in 5 seconds
+
+- Monthly revenue
+- Net profit
+- Outstanding payments
+- Top paying clients
+- Revenue per designer
+- On-time delivery rate
+- Active vs suspended users
+
+<Card title="Bottom line" icon="bolt">
+An operating system means **everything measurable, trackable, and automated**.
 </Card>
